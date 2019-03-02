@@ -1,0 +1,5 @@
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.common\bin\Debug\karepay.MailService.common.dll
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.common\bin\Debug\karepay.MailService.common.pdb
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.common\obj\Debug\karepay.MailService.common.csproj.CoreCompileInputs.cache
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.common\obj\Debug\karepay.MailService.common.dll
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.common\obj\Debug\karepay.MailService.common.pdb

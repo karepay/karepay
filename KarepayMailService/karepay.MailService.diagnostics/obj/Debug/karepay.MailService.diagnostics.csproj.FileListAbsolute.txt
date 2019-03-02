@@ -1,0 +1,6 @@
+C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.diagnostics\bin\Debug\karepay.MailService.diagnostics.dll
+C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.diagnostics\bin\Debug\karepay.MailService.diagnostics.pdb
+C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.diagnostics\obj\Debug\karepay.MailService.diagnostics.csproj.CoreCompileInputs.cache
+C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.diagnostics\obj\Debug\karepay.MailService.diagnostics.dll
+C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.diagnostics\obj\Debug\karepay.MailService.diagnostics.pdb
+C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.diagnostics\obj\Debug\karepay.MailService.diagnostics.csprojAssemblyReference.cache

@@ -1,0 +1,11 @@
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.dm\bin\Debug\karepay.MailService.dm.dll
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.dm\bin\Debug\karepay.MailService.dm.pdb
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.dm\bin\Debug\karepay.MailService.common.dll
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.dm\bin\Debug\karepay.MailService.common.pdb
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.dm\obj\Debug\karepay.MailService.dm.csprojAssemblyReference.cache
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.dm\obj\Debug\karepay.MailService.dm.csproj.CoreCompileInputs.cache
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.dm\obj\Debug\karepay.MailService.dm.csproj.CopyComplete
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.dm\obj\Debug\karepay.MailService.dm.dll
+c:\users\ali_b\source\repos\KarepayMailService\karepay.MailService.dm\obj\Debug\karepay.MailService.dm.pdb
+C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.dm\bin\Debug\karepay.MailService.diagnostics.dll
+C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.dm\bin\Debug\karepay.MailService.diagnostics.pdb

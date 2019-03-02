@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarepayMailService", "KarepayMailService\KarepayMailService.csproj", "{56402C85-E080-48F9-B4C6-58F725341D4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "karepay.MailService.dm", "karepay.MailService.dm\karepay.MailService.dm.csproj", "{A3D93DA8-BA03-438A-BE87-698FB434B1FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "karepay.MailService.common", "karepay.MailService.common\karepay.MailService.common.csproj", "{96B90F17-ECEA-453A-9D1E-5A8D3FDE757D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "karepay.MailService.bll", "karepay.MailService.bll\karepay.MailService.bll.csproj", "{119A9B3B-4C1C-4558-ACD6-E372F4CC2CD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "karepay.MailService.Interfaces", "karepay.MailService.Interfaces\karepay.MailService.Interfaces.csproj", "{B7F386A1-4087-4EA1-9908-B2348A4A81F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "karepay.MailService.diagnostics", "karepay.MailService.diagnostics\karepay.MailService.diagnostics.csproj", "{1B7123CC-B2C5-436F-97BE-FC6DA0C3FF56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "karepay.MailService.Integration", "karepay.MailService.Integration\karepay.MailService.Integration.csproj", "{600D3B92-6AC0-435A-A698-F3D3318CE80B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56402C85-E080-48F9-B4C6-58F725341D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56402C85-E080-48F9-B4C6-58F725341D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56402C85-E080-48F9-B4C6-58F725341D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56402C85-E080-48F9-B4C6-58F725341D4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D93DA8-BA03-438A-BE87-698FB434B1FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D93DA8-BA03-438A-BE87-698FB434B1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D93DA8-BA03-438A-BE87-698FB434B1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D93DA8-BA03-438A-BE87-698FB434B1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96B90F17-ECEA-453A-9D1E-5A8D3FDE757D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B90F17-ECEA-453A-9D1E-5A8D3FDE757D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B90F17-ECEA-453A-9D1E-5A8D3FDE757D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96B90F17-ECEA-453A-9D1E-5A8D3FDE757D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{119A9B3B-4C1C-4558-ACD6-E372F4CC2CD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{119A9B3B-4C1C-4558-ACD6-E372F4CC2CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{119A9B3B-4C1C-4558-ACD6-E372F4CC2CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{119A9B3B-4C1C-4558-ACD6-E372F4CC2CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7F386A1-4087-4EA1-9908-B2348A4A81F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F386A1-4087-4EA1-9908-B2348A4A81F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F386A1-4087-4EA1-9908-B2348A4A81F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F386A1-4087-4EA1-9908-B2348A4A81F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B7123CC-B2C5-436F-97BE-FC6DA0C3FF56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B7123CC-B2C5-436F-97BE-FC6DA0C3FF56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B7123CC-B2C5-436F-97BE-FC6DA0C3FF56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B7123CC-B2C5-436F-97BE-FC6DA0C3FF56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{600D3B92-6AC0-435A-A698-F3D3318CE80B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{600D3B92-6AC0-435A-A698-F3D3318CE80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{600D3B92-6AC0-435A-A698-F3D3318CE80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{600D3B92-6AC0-435A-A698-F3D3318CE80B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CB1421C-2632-4ED5-AE00-998EAE2663EA}
+	EndGlobalSection
+EndGlobal
