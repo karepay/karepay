@@ -3,3 +3,4 @@ C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.diagnostics\b
 C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.diagnostics\obj\Release\karepay.MailService.diagnostics.csproj.CoreCompileInputs.cache
 C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.diagnostics\obj\Release\karepay.MailService.diagnostics.dll
 C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.diagnostics\obj\Release\karepay.MailService.diagnostics.pdb
+C:\Users\ali_b\source\repos\KarepayMailService\karepay.MailService.diagnostics\obj\Release\karepay.MailService.diagnostics.csprojAssemblyReference.cache
