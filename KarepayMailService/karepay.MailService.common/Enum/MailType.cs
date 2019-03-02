@@ -8,7 +8,7 @@ namespace karepay.MailService.common.Enum
 {
     public enum MailType
     {
-        AuthenticationMail = 1,
+        ActivationMail = 1,
         NotificationMail,
     }
 }

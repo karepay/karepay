@@ -29,7 +29,7 @@ namespace karepay.MailService.dm
                 command = new SqlCommand(query, sqlConnection);
                 command.Parameters.AddWithValue("@STT", MailStatus.New);
                 command.Parameters.AddWithValue("@STA", MailStatus.Error);
-                command.Parameters.AddWithValue("@TYP", MailType.AuthenticationMail);
+                command.Parameters.AddWithValue("@TYP", mailType);
 
                 try
                 {

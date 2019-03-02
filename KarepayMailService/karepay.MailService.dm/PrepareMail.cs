@@ -27,10 +27,11 @@ namespace karepay.MailService.dm
 
                 string query = "select * from NotificationMng.MailFormat MF " +
                                     "inner join NotificationMng.MailAdress MA on MF.MailTypeID = MF.MailTypeID and MA.Active = @ACT and MF.Locked = @LCK " +
-                                    "where MF.MailTypeID = @TYP";
+                                    "where MF.MailTypeID = @TYP and  MA.MailTypeID = @TYPID";
                 SqlCommand command;
                 command = new SqlCommand(query, sqlConnection);
                 command.Parameters.AddWithValue("@TYP", mailType);
+                command.Parameters.AddWithValue("@TYPID", mailType);
                 command.Parameters.AddWithValue("@ACT", 1);
                 command.Parameters.AddWithValue("@LCK", 0);
 
@@ -68,7 +69,7 @@ namespace karepay.MailService.dm
         }
 
 
-        public OperationResult SaveMail(Mail mail,string activationLink)
+        public OperationResult SaveMail(Mail mail,string param)
         {
             OperationResult operationResult = new OperationResult();
             operationResult.result = true;
@@ -84,7 +85,7 @@ namespace karepay.MailService.dm
                     command.Parameters.Add("@FROM", SqlDbType.NVarChar, 100).Value = mail.MailParameters.From;
                     command.Parameters.Add("@TO", SqlDbType.NVarChar, 100).Value = mail.To;
                     command.Parameters.Add("@SUB", SqlDbType.NVarChar, Int32.MaxValue).Value = mail.Subject;
-                    command.Parameters.Add("@BODY", SqlDbType.NVarChar, Int32.MaxValue).Value = String.Format(mail.Body, activationLink);
+                    command.Parameters.Add("@BODY", SqlDbType.NVarChar, Int32.MaxValue).Value = String.Format(mail.Body, param);
                     command.Parameters.Add("@REQDATE", SqlDbType.DateTime).Value = DateTime.Now;
                     command.Parameters.Add("@STATUS", SqlDbType.Int).Value = MailStatus.New;
                     command.Parameters.Add("@SENTDATE", SqlDbType.DateTime).Value = DBNull.Value;

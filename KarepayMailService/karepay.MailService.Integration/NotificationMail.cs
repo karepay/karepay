@@ -1,35 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using karepay.MailService.common.Enum;
 using karepay.MailService.common.Mail;
 using karepay.MailService.common.OperationResults;
-using karepay.MailService.Interfaces;
-using karepay.MailService.dm;
 using karepay.MailService.diagnostics;
-using System.Data.SqlClient;
-using System.Configuration;
+using karepay.MailService.dm;
+using karepay.MailService.Interfaces;
 
 namespace karepay.MailService.Integration
 {
-    public class ActivationMail : IMailService
+    public class NotificationMail : IMailService
     {
 
         Mail mail = null;
         PrepareMailDM prepareMail = null;
 
-        public void ActivationMailProcess()
+
+        public void NotificationMailProcess()
         {
             mail = new Mail();
             prepareMail = new PrepareMailDM();
 
             using (SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["KAREPAYDB"].ConnectionString))
             {
-                string query = "select UAC.ActivationKey,USR.Email from ProfileMng.UserAccountActivation UAC " +
-                                    "inner join ProfileMng.UserAccount USR on USR.UserAccountID = UAC.UserAccountID " +
-                                    "where UAC.Status = @STA";
+                string query = "select NTF.NotificationID,NTF.Text,USR.Email from  NotificationMng.Notifications NTF " +
+                                    "inner join ProfileMng.UserAccount USR on USR.UserAccountID = NTF.UserAccountID " +
+                                    "where NTF.Status = @STA";
                 SqlCommand command;
                 command = new SqlCommand(query, sqlConnection);
                 command.Parameters.AddWithValue("@STA", MailStatus.New);
@@ -42,12 +43,13 @@ namespace karepay.MailService.Integration
 
                     while (reader.Read())
                     {
-                        string actKey = reader["ActivationKey"].ToString();
+                        string notificationText = reader["Text"].ToString();
+                        int notificationID = Convert.ToInt32(reader["NotificationID"]);
                         operationResult = new OperationResult();
-                        mail = PrepareMail(MailType.ActivationMail);
+                        mail = PrepareMail(MailType.NotificationMail);
                         mail.To = reader["Email"].ToString();
 
-                        operationResult = SaveMail(mail, actKey);
+                        operationResult = SaveMail(mail, notificationText);
 
                         if (operationResult.result)
                         {
@@ -55,10 +57,10 @@ namespace karepay.MailService.Integration
 
                             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["KAREPAYDB"].ConnectionString))
                             {
-                                query = "update ProfileMng.UserAccountActivation set Status = @STA where ActivationKey = @ACTKEY";
+                                query = "update NotificationMng.Notifications set Status = @STA where NotificationID = @ID";
                                 command = new SqlCommand(query, conn);
                                 command.Connection.Open();
-                                command.Parameters.AddWithValue("@ACTKEY", actKey);
+                                command.Parameters.AddWithValue("@ID", notificationID);
                                 command.Parameters.AddWithValue("@STA", MailStatus.Sending);
                                 try
                                 {
@@ -66,13 +68,13 @@ namespace karepay.MailService.Integration
                                 }
                                 catch (Exception ex)
                                 {
-                                    WriteEventLog.WriteError(ex, "Aktivasyon Tablosu Güncellerken Hata! \n" + "Aktivasyon UUID: " + actKey);
+                                    WriteEventLog.WriteError(ex, "Bilgilendirme Tablosu Güncellerken Hata!");
                                 }
                             }
                         }
                         else
                         {
-                            WriteEventLog.WriteError(operationResult.exception, "Mail Oluşturulurken Hata! \n" + "Aktivasyon UUID: " + actKey);
+                            WriteEventLog.WriteError(operationResult.exception, "Mail Oluşturulurken Hata! \n");
                         }
                     }
                     command.Connection.Close();
@@ -83,17 +85,17 @@ namespace karepay.MailService.Integration
                 }
             }
 
-            SendMail(MailType.ActivationMail);
+            SendMail(MailType.NotificationMail);
         }
 
         public Mail PrepareMail(MailType mailType)
         {
-            return prepareMail.PrepareMail(MailType.ActivationMail);
+            return prepareMail.PrepareMail(MailType.NotificationMail);
         }
 
-        public OperationResult SaveMail(Mail mail, string activationLink)
+        public OperationResult SaveMail(Mail mail, string text)
         {
-            return prepareMail.SaveMail(mail, activationLink);
+            return prepareMail.SaveMail(mail, text);
         }
 
         public void SendMail(MailType mailType)

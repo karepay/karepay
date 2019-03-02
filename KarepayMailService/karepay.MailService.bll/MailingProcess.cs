@@ -12,10 +12,15 @@ namespace karepay.MailService.bll
 {
     public class MailingProcess
     {
-        public void MailProcess()
+        public void ActivationMailProcess()
         {
             ActivationMail activation = new ActivationMail();
             activation.ActivationMailProcess();
+        }
+        public void NotificationMailProcess()
+        {
+            NotificationMail notification = new NotificationMail();
+            notification.NotificationMailProcess();
         }
     }
 }

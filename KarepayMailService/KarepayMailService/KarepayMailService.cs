@@ -18,8 +18,10 @@ namespace KarepayMailService
     public partial class KarepayMailService : ServiceBase
     {
         MailingProcess mailingProcess = null;
-        private int timerInterval = 300000;
-        private Timer integrationTimer = null;
+        private int activationTimerInterval = 300000;
+        private int notificationTimerInterval = 300000;
+        private Timer activationMailIntegrationTimer = null;
+        private Timer notificationMailIntegrationTimer = null;
 
         public KarepayMailService()
         {
@@ -39,7 +41,7 @@ namespace KarepayMailService
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["KAREPAYDB"].ConnectionString))
             {
 
-                string query = "select MailServiceTimeInterval from Common.SystemParameter";
+                string query = "select ActivationMailTimeInterval,NotificationMailTimeInterval from Common.SystemParameter";
                 SqlCommand command;
                 command = new SqlCommand(query, conn);
                 try
@@ -48,8 +50,10 @@ namespace KarepayMailService
                     SqlDataReader reader = command.ExecuteReader();
 
                     if (reader.Read())
-                        timerInterval = Convert.ToInt32(reader["MailServiceTimeInterval"]) * 60000;
-                    
+                    {
+                        activationTimerInterval = Convert.ToInt32(reader["ActivationMailTimeInterval"]) * 60000;
+                        notificationTimerInterval = Convert.ToInt32(reader["NotificationMailTimeInterval"]) * 60000;
+                    }
 
                     command.Connection.Close();
                 }
@@ -59,14 +63,22 @@ namespace KarepayMailService
                 }
             }
             //ProcessMailingService(null);
-            integrationTimer = new Timer(ProcessMailingService,null, timerInterval, Timeout.Infinite);
+            activationMailIntegrationTimer = new Timer(ActivationMailingService, null, activationTimerInterval, Timeout.Infinite);
+            notificationMailIntegrationTimer = new Timer(NotificationMailingService, null, notificationTimerInterval, Timeout.Infinite);
         }
 
-        private void ProcessMailingService(object state)
+        private void ActivationMailingService(object state)
         {
-            mailingProcess.MailProcess();
-            if (integrationTimer != null)
-                integrationTimer.Change(timerInterval, Timeout.Infinite);
+            mailingProcess.ActivationMailProcess();
+            if (activationMailIntegrationTimer != null)
+                activationMailIntegrationTimer.Change(activationTimerInterval, Timeout.Infinite);
+        }
+
+        private void NotificationMailingService(object state)
+        {
+            mailingProcess.NotificationMailProcess();
+            if (notificationMailIntegrationTimer != null)
+                notificationMailIntegrationTimer.Change(notificationTimerInterval, Timeout.Infinite);
         }
 
         protected override void OnStop()
